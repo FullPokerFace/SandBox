@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import logo from "/public/logo.svg";
-import { Button } from "../common/Button";
+import { Button } from "../_common/Button";
 import { Menu } from "./Menu";
 import pic1 from "/public/pics/websiteThumbs/1.jpg";
 import pic2 from "/public/pics/websiteThumbs/2.jpg";

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useEffect, useLayoutEffect, useState } from "react";
-import { Button } from "../common/Button";
+import { Button } from "../_common/Button";
 import heroImg from "/public/pics/hero-1.png";
 
 const animatedText = ["web design", "3D animation", "mobile design"];
@@ -11,7 +11,6 @@ export const Hero = () => {
   useEffect(() => {
     const textChangeInterval = setInterval(() => {
       setIndex((prev) => {
-        console.log("tick");
         const newIndex = prev + 1;
         if (newIndex > animatedText.length - 1) return 0;
         return newIndex;

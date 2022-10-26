@@ -58,7 +58,7 @@ export default function Clients() {
         {brands &&
           brands.length > 0 &&
           brands.map((brand, index) => (
-            <Image key={index} src={brand} alt="partner" />
+            <Image quality={100} key={index} src={brand} alt="partner" />
           ))}
       </div>
     </div>

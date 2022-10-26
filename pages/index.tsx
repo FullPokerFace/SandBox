@@ -1,9 +1,13 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Clients from "../components/Clients/Clients";
+import { BlueFullWidthContainer } from "../components/_common/BlueFullWidthContainer";
 import { Hero } from "../components/Hero/Hero";
 import { Nav } from "../components/Nav/Nav";
 import { WhatWeDo } from "../components/WhatWeDo/WhatWeDo";
+import { OurStrategy } from "../components/OurStrategy/OurStrategy";
+import { WhyChooseUs } from "../components/WhyChooseUs/WhyChooseUs";
+import { CompanyFacts } from "../components/CompanyFacts/CompanyFacts";
 
 const Home: NextPage = () => {
   return (
@@ -18,7 +22,12 @@ const Home: NextPage = () => {
         <Nav />
         <Hero />
         <Clients />
-        <WhatWeDo />
+        <BlueFullWidthContainer>
+          <WhatWeDo />
+          <OurStrategy />
+          <WhyChooseUs />
+        </BlueFullWidthContainer>
+        <CompanyFacts />
       </main>
     </div>
   );
