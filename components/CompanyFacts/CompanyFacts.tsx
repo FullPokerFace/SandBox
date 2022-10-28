@@ -8,7 +8,7 @@ import { SmallBlueHeading } from "../_common/SmallBlueHeading";
 export const CompanyFacts = () => {
   return (
     <div className="container mx-auto flex flex-col md:flex-row p-4 gap-10">
-      <div className="flex-1 md:w-2/6 ">
+      <div className="flex-1 md:w-2/6 text-center md:text-left">
         <SmallBlueHeading>COMPANY FACTS</SmallBlueHeading>
         <MediumHeading>We are proud of our design team</MediumHeading>
         <p>
@@ -16,16 +16,16 @@ export const CompanyFacts = () => {
           you.
         </p>
       </div>
-      <div className="flex flex-col md:flex-row gap-6 justify-between flex-1">
+      <div className="flex flex-col sm:flex-row gap-1 justify-between flex-1">
         {facts &&
           facts.length > 0 &&
           facts.map((fact, index) => (
             <div key={index} className="flex flex-col items-center my-8 gap-2">
               <BlueBadge>{fact.icon}</BlueBadge>
-              <MediumHeading className="text-4xl">
+              <MediumHeading className="text-5xl text-center">
                 <AnimatedCounter from={0} to={fact.count} />+
               </MediumHeading>
-              <p>{fact.text}</p>
+              <p className="text-center">{fact.text}</p>
             </div>
           ))}
       </div>
@@ -87,5 +87,5 @@ const presentationIcon = (
 const facts = [
   { icon: presentationIcon, count: 1000, text: "Completed Projects" },
   { icon: personIcon, count: 50, text: "Happy Customers" },
-  { icon: presentationIcon, count: 20, text: "Awards Won" },
+  { icon: awardIcon, count: 20, text: "Awards Won" },
 ];

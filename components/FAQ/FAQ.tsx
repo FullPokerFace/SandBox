@@ -1,8 +1,8 @@
-import Image from "next/image";
+import React from "react";
 import { AccordionGroup } from "../_common/AccordionGroup/AccordionGroup";
+import { Button } from "../_common/Button";
 import { MediumHeading } from "../_common/MediumHeading";
 import { SmallBlueHeading } from "../_common/SmallBlueHeading";
-import whyUsImg from "/public/pics/whyus-1.png";
 
 const accordions = [
   {
@@ -20,20 +20,25 @@ const accordions = [
   },
 ];
 
-export const WhyChooseUs = () => {
+export const FAQ = () => {
   return (
-    <div className="p-4 flex flex-col md:flex-row gap-12 container mx-auto">
-      <div className="w-full md:w-1/2 ">
-        <Image src={whyUsImg} alt="Why Us Image" />
-      </div>
-      <div className="w-full md:w-1/2 flex flex-col justify-center ">
+    <div className="container mx-auto p-4 flex flex-col md:flex-row gap-8">
+      <div className="w-full md:w-1/2 space-y-4 text-center md-text-left">
         <SmallBlueHeading className="text-center md:text-left">
-          WHY CHOOSE US?
+          FAQ
         </SmallBlueHeading>
-        <MediumHeading className="mb-4">
-          We bring solutions to make life easier.
+        <MediumHeading>
+          {`If you don't see an answer to your question, you can send us an email
+        from our contact form.`}
         </MediumHeading>
-        <AccordionGroup items={accordions} />
+        <p>
+          Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+          lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare.
+        </p>
+        <Button label="View FAQ" />
+      </div>
+      <div className="w-full md:w-1/2">
+        <AccordionGroup items={accordions} itemClassName="shadow-lg p-4" />
       </div>
     </div>
   );

@@ -8,6 +8,9 @@ import { WhatWeDo } from "../components/WhatWeDo/WhatWeDo";
 import { OurStrategy } from "../components/OurStrategy/OurStrategy";
 import { WhyChooseUs } from "../components/WhyChooseUs/WhyChooseUs";
 import { CompanyFacts } from "../components/CompanyFacts/CompanyFacts";
+import { TeamMembers } from "../components/Team/TeamMembers";
+import Projects from "../components/Projects/Projects";
+import { FAQ } from "../components/FAQ/FAQ";
 
 const Home: NextPage = () => {
   return (
@@ -27,7 +30,12 @@ const Home: NextPage = () => {
           <OurStrategy />
           <WhyChooseUs />
         </BlueFullWidthContainer>
-        <CompanyFacts />
+        <div>
+          <CompanyFacts />
+          <TeamMembers />
+        </div>
+        <Projects />
+        <FAQ />
       </main>
     </div>
   );

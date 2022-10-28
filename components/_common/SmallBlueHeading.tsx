@@ -7,5 +7,5 @@ interface Props {
 
 export const SmallBlueHeading: React.FC<Props> = (props: Props) => {
   const { children, className } = props || {};
-  return <p className={`text-sky-600 mb-4 ${className}`}>{children}</p>;
+  return <p className={`text-sky-600 mb-4  ${className}`}>{children}</p>;
 };

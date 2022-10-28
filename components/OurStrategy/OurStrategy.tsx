@@ -24,8 +24,8 @@ const cards = [
 
 export const OurStrategy = () => {
   return (
-    <div className="container mx-auto flex flex-col md:flex-row gap-5 p-4">
-      <div className="w-full md:flex-1">
+    <div className="container mx-auto flex flex-col md:flex-row gap-5 p-4 ">
+      <div className="w-full md:flex-1 text-center md:text-left">
         <SmallBlueHeading>OUR STRATEGY</SmallBlueHeading>
         <MediumHeading>
           Here are 3 working steps to organize our projects.
