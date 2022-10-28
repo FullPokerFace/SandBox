@@ -33,7 +33,7 @@ export const FAQ = () => {
         </MediumHeading>
         <p>
           Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
-          lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare.
+          lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare
         </p>
         <Button label="View FAQ" />
       </div>
