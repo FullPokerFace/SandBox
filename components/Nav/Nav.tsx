@@ -9,6 +9,7 @@ import pic3 from "/public/pics/websiteThumbs/3.jpg";
 import pic4 from "/public/pics/websiteThumbs/4.jpg";
 import pic5 from "/public/pics/websiteThumbs/5.jpg";
 import pic6 from "/public/pics/websiteThumbs/6.jpg";
+import { Logo } from "../_common/Logo";
 
 const navMenu = [
   {
@@ -37,7 +38,7 @@ export const Nav = () => {
   return (
     <div className="flex items-center gap-6 z-10 relative container m-auto mt-8">
       <span className="flex flex-1 justify-center items-center md:justify-start">
-        <Image src={logo} alt="logo" />
+        <Logo />
       </span>
       <div className="hidden gap-6 md:flex">
         {navMenu &&

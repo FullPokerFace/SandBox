@@ -7,15 +7,19 @@ import { SmallBlueHeading } from "../_common/SmallBlueHeading";
 const accordions = [
   {
     defaultOpen: true,
-    title: "Professional Design",
+    title: "How do I get my subscription receipt?",
     text: "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel.",
   },
   {
-    title: "Top-Tier Support",
+    title: "Are there any corporate tier discounts?",
     text: "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel.",
   },
   {
-    title: "Header & Slider Options",
+    title: "Do you offer a free trial?",
+    text: "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel.",
+  },
+  {
+    title: "How do I reset account password",
     text: "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel.",
   },
 ];
@@ -23,12 +27,12 @@ const accordions = [
 export const FAQ = () => {
   return (
     <div className="container mx-auto p-4 flex flex-col md:flex-row gap-8">
-      <div className="w-full md:w-1/2 space-y-4 text-center md-text-left">
+      <div className="w-full md:w-1/2 space-y-4 text-center md:text-left">
         <SmallBlueHeading className="text-center md:text-left">
           FAQ
         </SmallBlueHeading>
         <MediumHeading>
-          {`If you don't see an answer to your question, you can send us an email
+          {`If you don't see an answer to your question, you can send us an email2
         from our contact form.`}
         </MediumHeading>
         <p>
@@ -38,7 +42,10 @@ export const FAQ = () => {
         <Button label="View FAQ" />
       </div>
       <div className="w-full md:w-1/2">
-        <AccordionGroup items={accordions} itemClassName="shadow-lg p-4" />
+        <AccordionGroup
+          items={accordions}
+          itemClassName="shadow-lg p-4 rounded-2xl border-[1px] border-slate-50 text-xl"
+        />
       </div>
     </div>
   );

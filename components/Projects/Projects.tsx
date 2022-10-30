@@ -29,7 +29,7 @@ export default function Projects() {
   return (
     <div className="container p-4 mx-auto text-center space-y-8">
       <SmallBlueHeading>LATEST PROJECTS</SmallBlueHeading>
-      <MediumHeading className="max-w-xl mx-auto">
+      <MediumHeading className="max-w-xl mx-auto md:text-center">
         Check out some of our awesome projects with creative ideas and great
         design.
       </MediumHeading>

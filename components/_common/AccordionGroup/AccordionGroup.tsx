@@ -70,15 +70,17 @@ const AccordionItem: React.FC<AccordionItemProps> = (
 
   return (
     <div className={`flex flex-col items-start ${className}`}>
-      <button className="min-w-max flex gap-3" onClick={toggleShow}>
-        <Image
-          className={`transition-all  ${open ? "-rotate-180" : ""}`}
-          width={25}
-          height={25}
-          alt="accordion arrow"
-          src={arrowDown}
-        />
-        <p className="font-semibold">{title}</p>
+      <button className="flex gap-3 w-full items-center" onClick={toggleShow}>
+        <p className="min-w-[25px]">
+          <Image
+            className={`transition-all  ${open ? "-rotate-180" : ""} `}
+            width={25}
+            height={25}
+            alt="accordion arrow"
+            src={arrowDown}
+          />
+        </p>
+        <p className="font-semibold text-left">{title}</p>
       </button>
       <div>
         <p

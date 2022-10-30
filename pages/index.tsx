@@ -11,6 +11,7 @@ import { CompanyFacts } from "../components/CompanyFacts/CompanyFacts";
 import { TeamMembers } from "../components/Team/TeamMembers";
 import Projects from "../components/Projects/Projects";
 import { FAQ } from "../components/FAQ/FAQ";
+import { Footer } from "../components/Footer/Footer";
 
 const Home: NextPage = () => {
   return (
@@ -36,6 +37,7 @@ const Home: NextPage = () => {
         </div>
         <Projects />
         <FAQ />
+        <Footer />
       </main>
     </div>
   );

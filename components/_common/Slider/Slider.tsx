@@ -43,11 +43,14 @@ export const Slider: FC<SliderProps> = (props: SliderProps) => {
 
   useEffect(() => {
     if (containerDiv?.current) {
-      (containerDiv?.current as HTMLDivElement)
-        .querySelectorAll("div")
-        ?.[index].scrollIntoView({
-          behavior: "smooth",
-        });
+      const { width = 0 } =
+        (containerDiv?.current as HTMLDivElement)
+          ?.querySelector("div")
+          ?.getBoundingClientRect() || {};
+      (containerDiv?.current as HTMLDivElement).scrollTo({
+        left: width * index,
+        behavior: "smooth",
+      });
     }
   }, [index]);
 
@@ -88,7 +91,7 @@ const Slide: FC<SlideProps> = (props: SlideProps) => {
     <div className="min-w-full space-y-4">
       <Image alt={title} src={img} className="rounded-xl" />
       <MediumHeading>{title}</MediumHeading>
-      <p>{type.toUpperCase()}</p>
+      <p className="md:text-left">{type.toUpperCase()}</p>
     </div>
   );
 };
