@@ -1,10 +1,10 @@
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import arrowDown from "/public/icons/arrowDown.svg";
 
 interface AccordionItemProps {
   title: string;
-  text: string;
+  text: string | ReactNode;
   defaultOpen?: boolean;
   className?: string;
 }

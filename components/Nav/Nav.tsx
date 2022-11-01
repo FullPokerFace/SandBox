@@ -1,8 +1,7 @@
-import Image from "next/image";
 import React from "react";
-import logo from "/public/logo.svg";
 import { Button } from "../_common/Button";
 import { Menu } from "./Menu";
+import { MobileMenu } from "./MobileMenu";
 import pic1 from "/public/pics/websiteThumbs/1.jpg";
 import pic2 from "/public/pics/websiteThumbs/2.jpg";
 import pic3 from "/public/pics/websiteThumbs/3.jpg";
@@ -36,10 +35,14 @@ const navMenu = [
 
 export const Nav = () => {
   return (
-    <div className="flex items-center gap-6 z-10 relative container m-auto mt-8">
-      <span className="flex flex-1 justify-center items-center md:justify-start">
-        <Logo />
+    <div className="flex items-center gap-6 z-10 relative container m-auto mt-4 p-4">
+      <span className="flex flex-1 items-center md:justify-start">
+        <a href="#" className="flex-1">
+          <Logo />
+        </a>
+        <MobileMenu items={navMenu} />
       </span>
+
       <div className="hidden gap-6 md:flex">
         {navMenu &&
           navMenu.length > 0 &&
