@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useState } from "react";
+import AnimatedHeightContainer from "../AnimatedHeightContainer";
 import arrowDown from "/public/icons/arrowDown.svg";
 
 interface AccordionItemProps {
@@ -40,33 +41,10 @@ const AccordionItem: React.FC<AccordionItemProps> = (
   const { title, text, defaultOpen = false, className } = props || {};
 
   const [open, setOpen] = useState(defaultOpen);
-  const [maxH, setMaxH] = useState(0);
-
-  const contentRef = useRef(null);
 
   const toggleShow = () => {
     setOpen((prev) => !prev);
   };
-
-  useEffect(() => {
-    if (contentRef?.current) {
-      setMaxH((contentRef.current as HTMLPreElement).scrollHeight || 0);
-    }
-  }, [contentRef]);
-
-  useEffect(() => {
-    if (!contentRef?.current) return;
-    const preElement: HTMLPreElement = contentRef?.current;
-
-    const changeMaxH = () => {
-      setMaxH(preElement.scrollHeight || 0);
-    };
-    window.addEventListener("resize", changeMaxH);
-
-    return () => {
-      window.removeEventListener("resize", changeMaxH);
-    };
-  }, [contentRef]);
 
   return (
     <div className={`flex flex-col items-start ${className}`}>
@@ -83,17 +61,9 @@ const AccordionItem: React.FC<AccordionItemProps> = (
         <p className="font-semibold text-left">{title}</p>
       </button>
       <div>
-        <p
-          ref={contentRef}
-          style={
-            open
-              ? { maxHeight: `${maxH + 8}px`, paddingTop: "8px" }
-              : { maxHeight: 0, paddingTop: 0 }
-          }
-          className={`transition-all overflow-hidden pl-[38px]`}
-        >
+        <AnimatedHeightContainer open={open} className="pl-[38px]">
           {text}
-        </p>
+        </AnimatedHeightContainer>
       </div>
     </div>
   );

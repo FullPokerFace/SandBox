@@ -10,7 +10,7 @@ export const Footer = () => {
       {wave}
       <div className="bg-sky-900">
         <div className="container mx-auto p-4 space-y-4">
-          <div className="flex flex-col gap-4 sm:flex-row items-center pb-6 border-b-2 border-sky-800">
+          <div className="flex flex-col gap-4 sm:flex-row items-center justify-center pb-6 border-b-2 border-sky-800">
             <MediumHeading className="text-white">
               Join our community by using our services and grow your business.
             </MediumHeading>

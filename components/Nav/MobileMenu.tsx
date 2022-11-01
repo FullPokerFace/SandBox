@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { FC, useState } from "react";
+import AnimatedHeightContainer from "../_common/AnimatedHeightContainer";
 import { Logo } from "../_common/Logo";
 
 interface Props {
@@ -7,34 +9,43 @@ interface Props {
 
 export const MobileMenu: FC<Props> = (props) => {
   const { items } = props || {};
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   return (
     <div className="md:hidden">
       <button onClick={() => setOpen(true)} className="flex">
         {menuSVG}
       </button>
       {open && (
-        <div className="fixed left-0 top-0 right-0 bottom-0">
+        <div className="fixed left-0 top-0 h-screen w-screen text-white">
           <div
             onClick={() => setOpen(false)}
             className="absolute bg-slate-900 w-full h-full animate-fadeOut opacity-60"
           ></div>
-          <div className="absolute bg-slate-900 w-full h-full animate-slideFromLeft max-w-sm p-6">
-            <span className="flex mb-8">
+          <div className="fixed bg-slate-900 w-full h-screen animate-slideFromLeft max-w-sm p-6 overflow-y-scroll flex flex-col gap-8">
+            <span className="flex ">
               <a href="#" className="flex-1">
                 <Logo theme="light" />
               </a>
-              <button onClick={() => setOpen(false)}>{closeSVG}</button>
+              <button className="min-w-fit" onClick={() => setOpen(false)}>
+                {closeSVG}
+              </button>
             </span>
-            {items &&
-              items.length > 0 &&
-              items.map(({ label, submenus }, index) => (
-                <MenuItem
-                  key={"menu" + index}
-                  label={label}
-                  submenus={submenus}
-                />
-              ))}
+            <div className="h-full">
+              {items &&
+                items.length > 0 &&
+                items.map(({ label, submenus, images }, index) => (
+                  <MenuItem
+                    key={"menu" + index}
+                    label={label}
+                    submenus={submenus}
+                    images={images}
+                  />
+                ))}
+            </div>
+            <div>
+              <p>inquiry@sandbox.com</p>
+              <p>+ 1 (347) 677-2699</p>
+            </div>
           </div>
         </div>
       )}
@@ -45,10 +56,11 @@ export const MobileMenu: FC<Props> = (props) => {
 interface MenuItemProps {
   label: string;
   submenus: any[];
+  images: any[];
 }
 
 const MenuItem: FC<MenuItemProps> = (props) => {
-  const { label, submenus } = props || {};
+  const { label, submenus, images } = props || {};
   const [open, setOpen] = useState(false);
   return (
     <div className="mt-2">
@@ -57,23 +69,52 @@ const MenuItem: FC<MenuItemProps> = (props) => {
         className="flex w-full text-white justify-between items-center pr-2"
       >
         {label}
-        {arrowDownSVG}
+        <span className={`w-3 h-3 transition-all ${open ? "-rotate-180" : ""}`}>
+          {arrowDownSVG}
+        </span>
       </button>
-      {open && (
-        <div className="flex flex-col origin-top-left animate-zoomOut ">
-          {submenus &&
-            submenus.length > 0 &&
-            submenus.map((item: any, index: number) => (
-              <a
-                key={"submenu" + index}
-                href={item.href}
-                className="pl-4 text-sm text-white py-2"
-              >
-                {item.label}
-              </a>
-            ))}
-        </div>
-      )}
+
+      {/* Links */}
+      <AnimatedHeightContainer
+        open={open}
+        className="flex flex-col pl-2 duration-200"
+      >
+        {" "}
+        {submenus &&
+          submenus.length > 0 &&
+          submenus.map((item: any, index: number) => (
+            <a
+              key={"submenu" + index}
+              href={item.href}
+              className="text-sm text-white py-2"
+            >
+              {item.label}
+            </a>
+          ))}
+      </AnimatedHeightContainer>
+
+      {/* Images */}
+      <AnimatedHeightContainer
+        open={open}
+        className="flex duration-200 flex-wrap"
+      >
+        {" "}
+        {images &&
+          images.length > 0 &&
+          images.map((item: any, index: number) => (
+            <a
+              key={"submenu" + index}
+              href={item.href}
+              className="text-sm text-white p-2 w-1/2 "
+            >
+              <Image
+                className="rounded-lg"
+                src={item.src}
+                alt={label + "img" + index}
+              />
+            </a>
+          ))}
+      </AnimatedHeightContainer>
     </div>
   );
 };
@@ -119,7 +160,6 @@ const arrowDownSVG = (
     viewBox="0 0 24 24"
     strokeWidth={3.5}
     stroke="white"
-    className="w-3 h-3"
   >
     <path
       strokeLinecap="round"

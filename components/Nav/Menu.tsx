@@ -58,7 +58,7 @@ interface ImageMenuProps {
 const ImageMenu = (props: ImageMenuProps) => {
   const { items } = props || {};
   return (
-    <div className="absolute pt-5 left-0 right-0 top-[32px] animate-menuShow ">
+    <div className="absolute pt-5 left-0 right-0 top-14 animate-menuShow ">
       <div className="flex w-full p-5 rounded-lg bg-zinc-800 gap-5 justify-between">
         {items.length > 0 &&
           items.map((img: any, index: number) => (

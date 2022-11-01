@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
 import { Button } from "../_common/Button";
 import { Menu } from "./Menu";
 import { MobileMenu } from "./MobileMenu";
@@ -31,28 +31,83 @@ const navMenu = [
       { label: "Examples", href: "#" },
     ],
   },
+  {
+    label: "FAQ",
+    submenus: [
+      { label: "Getting Started", href: "#" },
+      { label: "Account Settings", href: "#" },
+    ],
+  },
 ];
 
 export const Nav = () => {
-  return (
-    <div className="flex items-center gap-6 z-10 relative container m-auto mt-4 p-4">
-      <span className="flex flex-1 items-center md:justify-start">
-        <a href="#" className="flex-1">
-          <Logo />
-        </a>
-        <MobileMenu items={navMenu} />
-      </span>
+  const navRef = useRef(null);
+  const [isNavSticky, setIsNavSticky] = useState(false);
 
-      <div className="hidden gap-6 md:flex">
-        {navMenu &&
-          navMenu.length > 0 &&
-          navMenu.map((menu: any, index: number) => (
-            <Menu key={index} menu={menu} />
-          ))}
+  const _trackWindowScroll = () => {
+    if (
+      navRef?.current &&
+      window.scrollY > (navRef.current as HTMLDivElement).scrollHeight
+    ) {
+      setIsNavSticky(true);
+    } else {
+      setIsNavSticky(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", _trackWindowScroll);
+    return () => {
+      window.removeEventListener("scroll", _trackWindowScroll);
+    };
+  }, []);
+  return (
+    <>
+      <div
+        className={`flex items-center gap-6 z-10 container m-auto p-6 relative`}
+        ref={navRef}
+      >
+        <span className="flex flex-1 items-center md:justify-start">
+          <a href="#" className="flex-1">
+            <Logo />
+          </a>
+          <MobileMenu items={navMenu} />
+        </span>
+
+        <div className="hidden gap-6 md:flex">
+          {navMenu &&
+            navMenu.length > 0 &&
+            navMenu.map((menu: any, index: number) => (
+              <Menu key={index} menu={menu} />
+            ))}
+        </div>
+        <span className="hidden md:block">
+          <Button label="Contact" />
+        </span>
       </div>
-      <span className="hidden md:block">
-        <Button label="Contact" />
-      </span>
-    </div>
+      {isNavSticky && (
+        <div
+          className={`flex items-center gap-6 container m-auto p-6 fixed bg-white z-[9] left-1/2 -translate-x-1/2 animate-fadeOutFull rounded-b-3xl shadow-xl`}
+        >
+          <span className="flex flex-1 items-center md:justify-start">
+            <a href="#" className="flex-1">
+              <Logo />
+            </a>
+            <MobileMenu items={navMenu} />
+          </span>
+
+          <div className="hidden gap-6 md:flex">
+            {navMenu &&
+              navMenu.length > 0 &&
+              navMenu.map((menu: any, index: number) => (
+                <Menu key={index} menu={menu} />
+              ))}
+          </div>
+          <span className="hidden md:block">
+            <Button label="Contact" />
+          </span>
+        </div>
+      )}
+    </>
   );
 };

@@ -44,7 +44,7 @@ export const FAQ = () => {
       <div className="w-full md:w-1/2">
         <AccordionGroup
           items={accordions}
-          itemClassName="shadow-lg p-4 rounded-2xl border-[1px] border-slate-50 text-xl"
+          itemClassName="shadow-lg p-4 rounded-2xl border-[1px] border-slate-50 text-lg"
         />
       </div>
     </div>

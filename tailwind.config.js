@@ -19,21 +19,26 @@ module.exports = {
           '0%': { opacity: 0 },
           '100%': { opacity: .6 },
         },
+        fadeOutFull : {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
         slideFromLeft : {
           '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(0)' },
         },
         zoomOut : {
-          '0%': { transform: 'scale(0.5)' },
-          '100%': { transform: 'scale(1)' },
+          '0%': { height: '0' },
+          '100%': { height: '100%' },
         },
       },
       animation: {
         menuShow: 'menuShow .5s ease-in-out',
         heroTextShow: 'heroTextShow .5s ease-out ',
-        fadeOut: 'fadeOut .5s ease-in-out',
-        slideFromLeft: 'slideFromLeft .5s ease-in-out',
-        zoomOut: 'zoomOut .2s ease-in-out',
+        fadeOut: 'fadeOut 250ms ease-in-out',
+        fadeOutFull: 'fadeOutFull 250ms ease-in-out',
+        slideFromLeft: 'slideFromLeft 250ms ease-in-out',
+        zoomOut: 'zoomOut 250ms ease-in-out',
       }
     },
     fontFamily: {
