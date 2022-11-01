@@ -63,6 +63,7 @@ export const Nav = () => {
   }, []);
   return (
     <>
+      {/* Regular Navigation */}
       <div
         className={`flex items-center gap-6 z-10 container m-auto p-6 relative`}
         ref={navRef}
@@ -85,6 +86,7 @@ export const Nav = () => {
           <Button label="Contact" />
         </span>
       </div>
+      {/* Sticky Navigation */}
       {isNavSticky && (
         <div
           className={`flex items-center gap-6 container m-auto p-6 fixed bg-white z-[9] left-1/2 -translate-x-1/2 animate-fadeOutFull rounded-b-3xl shadow-xl`}
